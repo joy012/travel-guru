@@ -1,0 +1,58 @@
+.login-form {
+    width: 400px;
+    margin: 30px auto;
+}
+.login-form form {        
+    margin-bottom: 15px;
+    color:black;
+    box-shadow: 5px 5px 10px lightgrey;
+    padding: 30px;
+    border: 1px solid lightgrey;
+    border-radius: 12px;
+}
+.login-form form input {
+    border: none;
+    border-bottom: 1px solid lightgrey;
+}
+.login-form h2 {
+    margin: 0 0 15px;
+}
+.form-control, .login-btn {
+    border-radius: 2px;
+}
+.Separator {
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+}
+.Separator i {
+    padding: 0 10px;
+    background: #f7f7f7;
+    position: relative;
+    top: -11px;
+    z-index: 1;
+}   
+.orange-text{
+    color: #F9A51A;
+    cursor: pointer;
+}
+#submit-btn{
+    background-color: #F9A51A!important;
+    color: #000000;
+    border: none;
+}
+.social-login{
+    border: 1px solid #C7C7C7;
+    border-radius:20px;
+    padding: 6px 0;
+    width: 80%;
+    margin: auto;
+    cursor: pointer;
+}
+.social-login:hover{
+    background-color: lightgrey;
+}
+.logo{
+    width:37px;
+    height: 37px;
+}

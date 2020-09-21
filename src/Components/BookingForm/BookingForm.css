@@ -1,0 +1,19 @@
+.booking-form{
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.form-control{
+    background-color: #F2F2F2!important;
+    font-weight:bold!important;
+    color: #000000!important;
+}
+.label, label{
+    color: #818181;
+}
+#submit{
+    background-color: #F9A51A!important;
+    border-radius: 5px;
+}
+.date{
+    padding: 4px 6px!important;
+}

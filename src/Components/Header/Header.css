@@ -1,0 +1,40 @@
+
+.form{
+    min-width: 35%;
+}
+.form input{
+    font-family: 'Arial', 'FontAwesome';
+    width: 90%;
+    margin: auto;
+    background-color: rgba(0,0,0,0.2)!important;
+    color: white !important;
+}
+.form input:focus::placeholder{
+    color:grey!important;
+}
+.form input::placeholder {
+    color: white!important;
+  }
+.nav-link{
+    font-size:1.05rem;
+    color: #fff;
+}
+.btn{
+    background-color: #F9A51A;
+    color: black!important;
+    border-radius: 6px;
+}
+.logo-white{
+    filter: brightness(1000%);
+}
+
+
+@media screen and (max-width:576px){
+    .form{
+        min-width: 90%;
+    }
+    .form input{
+        min-width: 90%;
+        margin: auto;
+    }
+}
