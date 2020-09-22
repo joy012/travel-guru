@@ -63,6 +63,7 @@ const LogInForm = () => {
     }
     const handleResetPass = email => {
         if(user.email){
+            alert("Check email to reset your password!")
             resetPassword(email);
         }
     }
