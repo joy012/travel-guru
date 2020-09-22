@@ -20,7 +20,7 @@ const LogInForm = () => {
     const handleResponse = (response) => {
         setUser(response);
         setLoggedInUser(response);
-        response.error? history.replace('/login') : history.replace(from);
+        history.replace(from);
     }
     const googleSignIn = () => {
         handleGoogleSignIn()
@@ -66,7 +66,7 @@ const LogInForm = () => {
             resetPassword(email);
         }
     }
-
+    console.log(newUser)
     return (
         <div className="container">
             <div className="login-form">
@@ -121,20 +121,21 @@ const LogInForm = () => {
                 }
                 <div className="form-group">
                     {
-                        (location.hash === '#/reset')? <input type="submit" className="login-btn form-control" id="submit-btn" value='Reset Password' />
+                        (location.hash === '#/reset')? <input onClick={() => handleResetPass(user.email)} type="submit" className="login-btn form-control" id="submit-btn" value='Reset Password' />
                         : <input type="submit" className="login-btn form-control" id="submit-btn" value={!newUser? 'LogIn' : 'Create an Account'}/>
                     }
                 </div>
                 {
-                    !newUser && !(location.hash === '#/reset') &&
+                    (!newUser && !(location.hash === '#/reset')) &&
                         <div className="clearfix">
                             <label className="float-left form-check-label text-dark">
                                 <input type="checkbox"/> Remember me
                             </label>
-                            <Link to='#/reset' onClick={() => handleResetPass(user.email)} className="orange-text float-right" >Forgot Password?</Link>
+                            <Link to='#/reset' className="orange-text float-right" >Forgot Password?</Link>
                         </div>
                 }
-                <p className="mt-3 mb-1">{newUser ? 'Already have an account?' : "Don't have an account?"} <Link to={!newUser? 'login/create-account' : '/login'} className="orange-text" onClick={() => setNewUser(!newUser)}>{newUser ? 'LogIn' : 'Create an account'}</Link></p>
+                <p className="mt-3 mb-1">{newUser ? 'Already have an account?' : "Don't have an account?"} 
+                <Link to={!newUser? 'login/create-account' : '/login'} className="orange-text" onClick={() => setNewUser(!newUser)}>{newUser ? 'LogIn' : 'Create an account'}</Link></p>
             </form>
             <div className="Separator"><i>or</i></div>
             <div onClick={fbSignIn} className="social-login d-flex justify-content-around align-items-center">
