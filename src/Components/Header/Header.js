@@ -24,6 +24,10 @@ const Header = () => {
             });
         }
     }
+    const preventSubmit = e => {
+        e.target.reset();
+        e.preventDefault();
+    }
     
     return (
         <nav className={`container navbar navbar-expand-md px-4 px-md-0 ${borderBottom && 'borderBottom'} ${isLocation? 'navbar-dark': 'navbar-light'}`}>
@@ -37,7 +41,7 @@ const Header = () => {
 
             <div className="collapse navbar-collapse text-center" id="navbarSupportedContent">
                 {
-                    isLocation && <form className="form my-2 my-lg-0">
+                    isLocation && <form onSubmit={preventSubmit} className="form my-2 my-lg-0">
                         <input className="form-control mr-sm-2" type="search" placeholder="&#xF002; Search Your Destination.." aria-label="Search"/>
                     </form>
                 }
