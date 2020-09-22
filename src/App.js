@@ -11,6 +11,7 @@ import Booking from './Pages/Booking/Booking';
 import PrivateRoute from './Components/PrivateRouter/PrivateRoute';
 import LogIn from './Pages/Login/LogIn';
 import Home from './Pages/Home/Home';
+import Hotels from './Pages/Hotels/Hotels';
 
 export const UserContext = createContext();
 
@@ -42,8 +43,8 @@ function App() {
         <Route path='/login'>
           <LogIn/>
         </Route>
-        <PrivateRoute path='/details/:place'>
-          
+        <PrivateRoute path='/detail/:place'>
+          <Hotels/>
         </PrivateRoute>
         <Route exact path='/'>
           <Home/>

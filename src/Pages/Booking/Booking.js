@@ -17,11 +17,11 @@ const Booking = () => {
           <Header/>
           <div className="container mt-5">
               <div className="row justify-content-center align-items-center">
-                  <div className="col-md-6 text-white">
+                  <div className="col-md-7 text-white">
                       <h1>{place.placeName}</h1>
                       <p>{place.placeDetail}</p>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-5">
                       <BookingForm placeName={place.placeName}/>
                   </div>
               </div>

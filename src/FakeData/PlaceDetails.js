@@ -12,7 +12,11 @@ export const allPlaces = [
     placeName: "SUNDARBAN",
     image: sundarban,
     placeDetail:
-      "The Sundarbans is a mangrove area in the delta formed by the confluence of the Ganges, Brahmaputra and Meghna Rivers in the Bay of Bengal.It comprises closed and open mangrove forests, agriculturally used land and is intersected by multiple channels."
+      "The Sundarbans is a mangrove area in the delta formed by the confluence of the Ganges, Brahmaputra and Meghna Rivers in the Bay of Bengal.It comprises closed and open mangrove forests, agriculturally used land and is intersected by multiple channels.",
+    coordinate: {
+      lat: 22.476412, 
+      lng: 89.581010
+    }
   },
   {
     id: 2,
@@ -20,13 +24,21 @@ export const allPlaces = [
     image: sreemangal,
     placeDetail:
       "Sreemangal is a hilly area covered with tea estates. There are 47 tea gardens in Sreemangal. A large portion of world’s highest quality tea is grown here. It is also called the city of ‘two leaves and a bud. Sreemangal is famous for nature, forests and wildlife",
+    coordinate: {
+      lat: 24.301756, 
+      lng: 91.764298
+    }
   },
   {
     id: 3,
     placeName: "SAJEK",
     image: sajek,
     placeDetail:
-      "Sajek valley is known for its natural environment and is surrounded by mountains, dense forest, and grassland hill tracks. Many small rivers flow through the mountains among which the Kachalong and the Machalong are notable.."
+      "Sajek valley is known for its natural environment and is surrounded by mountains, dense forest, and grassland hill tracks. Many small rivers flow through the mountains among which the Kachalong and the Machalong are notable..",
+    coordinate: {
+      lat: 23.381779, 
+      lng: 92.294385
+    }
   }
 ];
 

@@ -76,7 +76,7 @@ const BookingForm = ({placeName}) => {
         </MuiPickersUtilsProvider>
       </div>
     </div>
-    <Link to='/login'>
+    <Link to={`/detail/${placeName}`}>
       <input type="submit" className="form-control my-3" id="submit" value='Start Booking' />
     </Link>
   </form>
