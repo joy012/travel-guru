@@ -1,5 +1,4 @@
 .login-form {
-    width: 400px;
     margin: 30px auto;
 }
 .login-form form {        
@@ -55,4 +54,31 @@
 .logo{
     width:37px;
     height: 37px;
+}
+
+
+@media screen and (min-width: 992px){
+    .login-form{
+        width: 40%;
+    }
+}
+@media screen and (max-width: 991px){
+    .login-form{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 767px){
+    .login-form{
+        width: 75%;
+    }
+}
+@media screen and (max-width: 575px){
+    .login-form{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 430px){
+    .login-form{
+        width: 100%;
+    }
 }

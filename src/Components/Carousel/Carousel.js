@@ -21,14 +21,14 @@ const Carousel = () => {
                 <Fade {...properties}>
                     {
                         places.map(place => 
-                            <div className="each-slide">
+                            <div key={place.id} className="each-slide">
                                 <div className="row align-items-center text-white">
                                     <div className="col-md-5 ml-auto">
                                         <h1>{place.placeName}</h1>
                                         <p>{place.placeDetail}</p>
                                         <Link to={`booking/${place.placeName.toLocaleLowerCase()}`}>
                                             <button className="btn">Book Now &nbsp;
-                                            <i class="fas fa-long-arrow-alt-right"></i>
+                                            <i className="fas fa-long-arrow-alt-right"></i>
                                             </button>
                                         </Link>
                                     </div>

@@ -68,7 +68,8 @@ const LogInForm = () => {
     }
 
     return (
-        <div className="login-form">
+        <div className="container">
+            <div className="login-form">
             {
                 user.error && <div className="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>{user.error}</strong>
@@ -126,8 +127,8 @@ const LogInForm = () => {
                 </div>
                 {
                     !newUser && !(location.hash === '#/reset') &&
-                        <div class="clearfix">
-                            <label class="float-left form-check-label text-dark">
+                        <div className="clearfix">
+                            <label className="float-left form-check-label text-dark">
                                 <input type="checkbox"/> Remember me
                             </label>
                             <Link to='#/reset' onClick={() => handleResetPass(user.email)} className="orange-text float-right" >Forgot Password?</Link>
@@ -145,6 +146,7 @@ const LogInForm = () => {
                 <span>Continue With Google</span>
             </div> 
         </div>
+    </div>
     );
 };
 export default LogInForm;

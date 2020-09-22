@@ -12,6 +12,7 @@ import PrivateRoute from './Components/PrivateRouter/PrivateRoute';
 import LogIn from './Pages/Login/LogIn';
 import Home from './Pages/Home/Home';
 import Hotels from './Pages/Hotels/Hotels';
+import NotMatched from './Pages/NotMatched/NotMatched';
 
 export const UserContext = createContext();
 
@@ -48,6 +49,9 @@ function App() {
         </PrivateRoute>
         <Route exact path='/'>
           <Home/>
+        </Route>
+        <Route path='*'>
+          <NotMatched/>
         </Route>
         </Switch>
       </Router>

@@ -12,18 +12,21 @@ const Header = () => {
     const [loggedInUser, setLoggedInUser, user, setUser] = useContext(UserContext);
     const location = useLocation();
     const isLocation = location.pathname === '/' || location.pathname === '/home' || location.pathname === '/booking/sreemangal' || location.pathname === '/booking/sundarban' || location.pathname === '/booking/sajek';
+    const borderBottom = location.pathname === '/detail/SUNDARBAN' || location.pathname === '/detail/SAJEK' || location.pathname === '/detail/SREEMANGAL'
 
     const signOut = () => {
-        window.confirm('Are you sure you want to Log Out?');
-        handleSignOut()
-        .then(res => {
-          setUser(res);
-          setLoggedInUser(res);
-        });
+        const logout = window.confirm('Are you sure you want to Log Out?');
+        if(logout){
+            handleSignOut()
+            .then(res => {
+                setUser(res);
+                setLoggedInUser(res);
+            });
+        }
     }
     
     return (
-        <nav className={`container navbar navbar-expand-md px-4 px-md-0 ${isLocation? 'navbar-dark': 'navbar-light'}`}>
+        <nav className={`container navbar navbar-expand-md px-4 px-md-0 ${borderBottom && 'borderBottom'} ${isLocation? 'navbar-dark': 'navbar-light'}`}>
             <Link to='/' className='navbar-brand'>
                 <img className={`${isLocation? 'logo-white' : ''}`} src={logo} alt=""/>
             </Link>
@@ -53,13 +56,13 @@ const Header = () => {
                     </li>
                     <li className="nav-item">
                     {
-                        loggedInUser.name ? <Link title="Click to LogOut" to="/" className="btn" onClick={signOut}>{loggedInUser.name}</Link> : <Link className="btn" to="/login">LogIn</Link>
+                        loggedInUser.name ? <button title="Click to LogOut" className="btn" onClick={signOut}>{loggedInUser.name}</button> : <Link className="btn" to="/login">LogIn</Link>
                     }
                     </li>
                 </ul>
                 
-  </div>
-</nav>
+            </div>
+        </nav>
     );
 };
 

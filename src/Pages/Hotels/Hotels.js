@@ -12,8 +12,8 @@ const Hotels = () => {
         <>
             <Header/>
             <div className="container mt-5">
-                <h5 className="text-muted">{randomHotelNumber} hotels are available right now! </h5>
-                <h3 className="text-lg-left text-center">Stay In {placeName.place}</h3>
+                <h5 className="text-muted ">{randomHotelNumber} hotels are available right now! </h5>
+                <h3 className="text-lg-left text-center mt-3">Stay In {placeName.place}</h3>
                 <div className="row justify-content-center align-items-center">
                     <div className="col-lg-7">
                         <HotelDetail/>
