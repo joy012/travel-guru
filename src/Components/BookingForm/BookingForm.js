@@ -38,7 +38,7 @@ const BookingForm = ({ placeName }) => {
     borderRadius: '5px'
   }
 
-  console.log(departureDate, returnDate);
+
   return (
     <form className='p-3 booking-form bg-white'>
       <div className="form-group">

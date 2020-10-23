@@ -1,40 +1,19 @@
-import React, { useCallback, useState } from 'react'
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import { allPlaces } from '../../FakeData/PlaceDetails';
+import React from 'react';
+import Iframe from '@trendmicro/react-iframe';
 
-const containerStyle = {
-    width: '100%',
-    height: '100vh',
-    borderRadius: '12px'
-};
 
-const Map = ({placeName}) => {
-    const place = allPlaces.find(place => place.placeName === placeName);
-    const [map, setMap] = useState(null)
 
-    const onLoad = useCallback(function callback(map) {
-        const bounds = new window.google.maps.LatLngBounds();
-        map.fitBounds(bounds);
-        setMap(map)
-    }, [])
+const Map = ({ placeName }) => {
 
-    const onUnmount = useCallback(function callback(map) {
-        setMap(null)
-    }, [])
-
+    if(placeName === 'SUNDARBAN'){
+        placeName = 'SUNDARBAN ECO RESORT LTD';
+    }
+   
     return (
-        <LoadScript
-            googleMapsApiKey= "AIzaSyACF4giTrmoQJaPDhdi4gVtfmwmzhA2FK0" 
-        >
-            <GoogleMap
-                mapContainerStyle={containerStyle}
-                center={place.coordinate}
-                zoom={10}
-                onLoad={onLoad}
-                onUnmount={onUnmount}
-            >
-            </GoogleMap>
-        </LoadScript>
+        <Iframe
+            src={`https://maps.google.com/maps?q=${placeName},BANGLADESH&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+            style={{height: '100vh', width: '100%', borderRadius: '20px'}}
+        />
     )
 };
 
