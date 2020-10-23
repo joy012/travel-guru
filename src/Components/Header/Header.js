@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import './Header.css';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import logo from '../../FakeData/Logo.png'
-import { handleSignOut } from '../LogInForm/loginManager';
 import { UserContext } from '../../App';
 
 
@@ -18,13 +17,22 @@ const Header = () => {
     const signOut = () => {
         const logout = window.confirm('Are you sure you want to Log Out?');
         if (logout) {
-            handleSignOut()
-                .then(res => {
-                    setUser(res);
-                    setLoggedInUser(res);
-                    sessionStorage.clear();
-                    history.push('/');
-                });
+            const updateUser = {
+                isSignedIn: false,
+                firstName: '',
+                lastName: '',
+                name() { return `${this.firstName} ${this.lastName}` },
+                email: '',
+                password: '',
+                confirmPassword: '',
+                success: false,
+                error: '',
+                newUser: false
+            }
+            setLoggedInUser(updateUser);
+            setUser(updateUser);
+            sessionStorage.removeItem('name');
+            history.push('/')
         }
     }
     const preventSubmit = e => {

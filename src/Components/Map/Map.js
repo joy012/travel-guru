@@ -11,7 +11,7 @@ const Map = ({ placeName }) => {
    
     return (
         <Iframe
-            src={`https://maps.google.com/maps?q=${placeName},BANGLADESH&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+            src={`https://maps.google.com/maps?q=${placeName},BANGLADESH&t=&z=16&ie=UTF8&iwloc=&output=embed`}
             style={{height: '100vh', width: '100%', borderRadius: '20px'}}
         />
     )
