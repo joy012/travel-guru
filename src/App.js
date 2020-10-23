@@ -22,7 +22,7 @@ function App() {
     isSignedIn: false,
     firstName: '',
     lastName: '',
-    name(){return `${this.firstName} ${this.lastName}`},
+    name : '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -30,6 +30,10 @@ function App() {
     error: '',
     newUser: false
   })
+
+  if(user.firstName && user.lastName){
+    user.name = user.firstName + ' ' + user.lastName;
+  }
 
   if(loggedInUser.name){
     sessionStorage.setItem('name', loggedInUser.name);

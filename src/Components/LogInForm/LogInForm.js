@@ -51,7 +51,7 @@ const LogInForm = () => {
     const handleSubmit = (e) => {
         if (newUser && user.email && user.password) {
             if(user.password === user.confirmPassword){
-                const userName = user.name()
+                const userName = user.name;
                 createUserWithEmailAndPassword(userName, user.email, user.password)
                     .then(res => handleResponse(res));
             }

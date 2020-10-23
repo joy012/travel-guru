@@ -21,7 +21,7 @@ const Header = () => {
                 isSignedIn: false,
                 firstName: '',
                 lastName: '',
-                name() { return `${this.firstName} ${this.lastName}` },
+                name: '',
                 email: '',
                 password: '',
                 confirmPassword: '',
@@ -31,8 +31,9 @@ const Header = () => {
             }
             setLoggedInUser(updateUser);
             setUser(updateUser);
-            sessionStorage.removeItem('name');
-            history.push('/')
+            sessionStorage.setItem('name', '')
+            sessionStorage.clear();
+            history.push('/');
         }
     }
     const preventSubmit = e => {
