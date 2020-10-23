@@ -20,7 +20,7 @@ const LogInForm = () => {
     const handleResponse = (response) => {
         setUser(response);
         setLoggedInUser(response);
-        history.replace(from);
+        !user.error && history.replace(from);
     }
     const googleSignIn = () => {
         handleGoogleSignIn()
@@ -50,9 +50,11 @@ const LogInForm = () => {
     }
     const handleSubmit = (e) => {
         if (newUser && user.email && user.password) {
-            (user.password === user.confirmPassword) &&
-            createUserWithEmailAndPassword(user.name(), user.email, user.password)
-                .then(res => handleResponse(res));
+            if(user.password === user.confirmPassword){
+                const userName = user.name()
+                createUserWithEmailAndPassword(userName, user.email, user.password)
+                    .then(res => handleResponse(res));
+            }
         }
         if (!newUser && user.email && user.password) {
             signInWithEmailAndPassword(user.email, user.password)
@@ -67,21 +69,22 @@ const LogInForm = () => {
             resetPassword(email);
         }
     }
-    console.log(newUser)
+  
     return (
         <div className="container">
             <div className="login-form">
             {
                 user.error && <div className="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>{user.error}</strong>
-                    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                    <strong>{user.error}</strong><br/><br/>
+                    <h3>Close this error message and Create a New Account or Reset your Password!</h3>
+                    <button onClick={() => window.location.reload()} type="button" className="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
             }
             {
                 user.newUser && <div className="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>User {user.newUser? 'created' : 'logged in'} successfully!</strong>
+                    <strong>User {user.isSignedIn? 'logged in' : 'created'} successfully!</strong>
                     <button type="button" className="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -96,34 +99,34 @@ const LogInForm = () => {
                     newUser && <>
                         <div className="form-group">
                             <div className="input-group">
-                                <input onBlur={handleBlur} type="text" className="form-control" name="firstName" placeholder="First Name" required="required" />
+                                <input onBlur={handleBlur} type="text" className="form-control" name="firstName" placeholder="First Name" required />
                             </div>
                         </div>
                         <div className="form-group">
                             <div className="input-group">
-                                <input onBlur={handleBlur} type="text" className="form-control" name="lastName" placeholder="Last Name" required="required" />
+                                <input onBlur={handleBlur} type="text" className="form-control" name="lastName" placeholder="Last Name" required />
                             </div>
                         </div>
                     </>
                 }
                 <div className="form-group">
-                  <input onBlur={handleBlur} type="email" className="form-control" name="email" placeholder="Email Address" required="required" />
+                  <input onBlur={handleBlur} type="email" className="form-control" name="email" placeholder="Email Address" required />
                 </div>
                 {
                     !(location.hash === '#/reset') &&
                     <div className="form-group">
-                        <input onBlur={handleBlur} type="password" className="form-control" name="password" placeholder="Password" required="required" />      
+                        <input onBlur={handleBlur} type="password" className="form-control" name="password" placeholder="Password" required />      
                     </div>
                 }
                 {
                     newUser && <div className="form-group">
-                        <input onBlur={handleBlur} type="password" className="form-control" name="confirmPassword" placeholder="Confirm Password" required="required" />
+                        <input onBlur={handleBlur} type="password" className="form-control" name="confirmPassword" placeholder="Confirm Password" required />
                     </div>
                 }
                 <div className="form-group">
                     {
-                        (location.hash === '#/reset')? <input onClick={() => handleResetPass(user.email)} type="submit" className="login-btn form-control" id="submit-btn" value='Reset Password' />
-                        : <input type="submit" className="login-btn form-control" id="submit-btn" value={!newUser? 'LogIn' : 'Create an Account'}/>
+                        (location.hash === '#/reset')? <button onClick={() => handleResetPass(user.email)}  className="login-btn form-control submit-btn" >Reset Password</button>
+                        : <input type="submit" className="login-btn form-control submit-btn" value={!newUser? 'LogIn' : 'Create an Account'}/>
                     }
                 </div>
                 {
@@ -136,7 +139,7 @@ const LogInForm = () => {
                         </div>
                 }
                 <p className="mt-3 mb-1">{newUser ? 'Already have an account?' : "Don't have an account?"} 
-                <Link to={!newUser? 'login/create-account' : '/login'} className="orange-text" onClick={() => setNewUser(!newUser)}>{newUser ? 'LogIn' : 'Create an account'}</Link></p>
+                <span className="orange-text" onClick={() => setNewUser(!newUser)}>{newUser ? 'LogIn' : 'Create an account'}</span></p>
             </form>
             <div className="Separator"><i>or</i></div>
             <div onClick={fbSignIn} className="social-login d-flex justify-content-around align-items-center">

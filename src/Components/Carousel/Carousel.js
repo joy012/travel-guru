@@ -14,13 +14,13 @@ const Carousel = () => {
         transitionDuration: 500,
         infinite: true,
     }
-    
+
     return (
         <>
             <div className="slide-container">
                 <Fade {...properties}>
                     {
-                        places.map(place => 
+                        places.map(place =>
                             <div key={place.id} className="each-slide">
                                 <div className="row align-items-center text-white">
                                     <div className="col-md-5 ml-auto">
@@ -34,14 +34,12 @@ const Carousel = () => {
                                     </div>
                                     <div className="col-md-6 mt-3">
                                         <div>
-                                            <Link to={`booking/${place.placeName.toLocaleLowerCase()}`}>
-                                                <img className="d-block mx-auto" src={place.image} alt=""/>
-                                            </Link>
+                                            <img className="d-block mx-auto" src={place.image} alt="" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                    )}
+                        )}
                 </Fade>
             </div>
         </>

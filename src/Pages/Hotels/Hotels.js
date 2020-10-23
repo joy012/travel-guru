@@ -8,10 +8,13 @@ import Map from '../../Components/Map/Map';
 const Hotels = () => {
     const placeName = useParams();
     const randomHotelNumber = Math.round(Math.random() * 100) + 100;
+    const departureDate = (sessionStorage.getItem('departureDate'));
+    const returnDate = (sessionStorage.getItem('returnDate'));
     return (
         <>
             <Header/>
             <div className="container mt-5">
+                <h5 className="text-muted ">{departureDate} - {returnDate}</h5>
                 <h5 className="text-muted ">{randomHotelNumber} hotels are available right now! </h5>
                 <h3 className="text-lg-left text-center mt-3">Stay In {placeName.place}</h3>
                 <div className="row justify-content-center align-items-center">

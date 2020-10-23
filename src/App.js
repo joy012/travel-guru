@@ -22,7 +22,7 @@ function App() {
     isSignedIn: false,
     firstName: '',
     lastName: '',
-    name() {return `${this.firstName} ${this.lastName}`},
+    name(){return `${this.firstName} ${this.lastName}`},
     email: '',
     password: '',
     confirmPassword: '',
@@ -30,6 +30,10 @@ function App() {
     error: '',
     newUser: false
   })
+
+  if(loggedInUser.name){
+    sessionStorage.setItem('name', loggedInUser.name);
+  }
 
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser, user, setUser]}>

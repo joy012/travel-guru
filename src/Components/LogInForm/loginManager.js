@@ -1,6 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "./firebase.config";
+const admin = require("firebase-admin");
 
 
 export const initializeLogInFrameWork = () => {
@@ -68,6 +69,7 @@ export const signInWithEmailAndPassword = (email, password) => {
         .then(res => setUserInfo(res))
         .catch(error => handleError(error));
 }
+
 
 export const handleSignOut = () => {
     return firebase.auth().signOut()

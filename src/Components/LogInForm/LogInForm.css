@@ -33,12 +33,16 @@
 }   
 .orange-text{
     color: #F9A51A;
-    cursor: pointer;
 }
-#submit-btn{
+.orange-text:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+}
+.submit-btn{
     background-color: #F9A51A!important;
-    color: #000000;
-    border: none;
+    color: #000000!important;
+    border: none!important;
 }
 .social-login{
     border: 1px solid #C7C7C7;
